@@ -285,75 +285,17 @@ public class CalcFrame extends javax.swing.JFrame {
 
     private void ButtonForSubButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForSubButtonClicked
         // TODO add your handling code here:
+        if(num1.isEmpty()){
+            num1="-"+num1;
+            OutputField.setText(num1);
+            return;
+        }
         if(!flag) {flag=true;
                 OutputField.setText(num1+"-");
                 operator='-';
         }
-        else{double tempOperation;
-            tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
-            num1=""+tempOperation;
-            num2="";
-            flag=false;
-            }
-            else{
-            num1=String.valueOf((int)tempOperation);
-            num2="";
-            flag=false;
-            }
-            OutputField.setText(num1);
-        }
-        
-    }//GEN-LAST:event_ButtonForSubButtonClicked
-
-    private void ButtonForDivButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForDivButtonClicked
-        // TODO add your handling code here:
-        if(!flag) {flag=true;
-            OutputField.setText("");
-            operator='/';
-        }
-        else{double tempOperation;
-            tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
-            num1=""+tempOperation;
-            num2="";
-            flag=false;
-            }
-            else{
-            num1=""+(int)tempOperation;
-            num2="";
-            flag=false;
-            }
-            OutputField.setText(num1);
-        }
-    }//GEN-LAST:event_ButtonForDivButtonClicked
-
-    private void ButtonForMultButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForMultButtonClicked
-        // TODO add your handling code here:
-        if(!flag) {flag=true;
-            OutputField.setText("");
-            operator='*';
-        }
-        else{double tempOperation;
-            tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
-            num1=""+tempOperation;
-            num2="";
-            flag=false;
-            }
-            else{
-            num1=""+(int)tempOperation;
-            num2="";
-            flag=false;
-            }
-            OutputField.setText(num1);
-        }
-    }//GEN-LAST:event_ButtonForMultButtonClicked
-
-    private void ButtonForAnsButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForAnsButtonClicked
-        // TODO add your handling code here:
-        double tempOperation=0;
-        switch(operator){
+        else{double tempOperation=0;
+            switch(operator){
             case '-':
                 tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
                 break;
@@ -369,51 +311,48 @@ public class CalcFrame extends javax.swing.JFrame {
             case '%':
                 tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
                 break;
-        }
-        
-        if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
-        num1=""+tempOperation;
-        num2="";
-        flag=false;
-        }
-        else{
-        num1=""+(int)tempOperation;
-        num2="";
-        flag=false;
-        }
-        OutputField.setText(num1);
-    }//GEN-LAST:event_ButtonForAnsButtonClicked
-
-    private void ButtonForAddButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForAddButtonClicked
-        // TODO add your handling code here:
-        if(!flag) {flag=true;
-            OutputField.setText("");
-            operator='+';
-        }
-        else{double tempOperation;
-            tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
+            }
+            
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
-                num1=""+tempOperation;
-                num2="";
-                flag=false;
+            num1=""+tempOperation;
+            num2="";
+            flag=false;
             }
             else{
-                num1=""+(int)tempOperation;
-                num2="";
-                flag=false;
+            num1=String.valueOf((int)tempOperation);
+            num2="";
+            flag=false;
             }
+            operator='-';
             OutputField.setText(num1);
         }
-    }//GEN-LAST:event_ButtonForAddButtonClicked
+        
+    }//GEN-LAST:event_ButtonForSubButtonClicked
 
-    private void ButtonForModButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForModButtonClicked
+    private void ButtonForDivButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForDivButtonClicked
         // TODO add your handling code here:
         if(!flag) {flag=true;
-            OutputField.setText("");
-            operator='%';
+            OutputField.setText(num1+"/");
+            operator='/';
         }
-        else{double tempOperation;
-            tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
+        else{double tempOperation=0;
+            switch(operator){
+            case '-':
+                tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
+                break;
+            case '+':
+                tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
+                break;
+            case '/':
+                tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
+                break;
+            case '*':
+                tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
+                break;
+            case '%':
+                tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
+                break;
+            }
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
@@ -424,6 +363,164 @@ public class CalcFrame extends javax.swing.JFrame {
             num2="";
             flag=false;
             }
+            operator='/';
+            OutputField.setText(num1);
+        }
+    }//GEN-LAST:event_ButtonForDivButtonClicked
+
+    private void ButtonForMultButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForMultButtonClicked
+        // TODO add your handling code here:
+        if(!flag) {flag=true;
+            OutputField.setText(num1+"*");
+            operator='*';
+        }
+        else{double tempOperation=0;
+            switch(operator){
+            case '-':
+                tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
+                break;
+            case '+':
+                tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
+                break;
+            case '/':
+                tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
+                break;
+            case '*':
+                tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
+                break;
+            case '%':
+                tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
+                break;
+            }
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
+            num1=""+tempOperation;
+            num2="";
+            flag=false;
+            }
+            else{
+            num1=""+(int)tempOperation;
+            num2="";
+            flag=false;
+            }
+            operator='*';
+            OutputField.setText(num1);
+        }
+    }//GEN-LAST:event_ButtonForMultButtonClicked
+
+    private void ButtonForAnsButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForAnsButtonClicked
+        // TODO add your handling code here:
+        if(num2.isEmpty()){
+            OutputField.setText(num1);
+        }
+        else{
+            double tempOperation=0;
+            switch(operator){
+            case '-':
+                tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
+                break;
+            case '+':
+                tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
+                break;
+            case '/':
+                tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
+                break;
+            case '*':
+                tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
+                break;
+            case '%':
+                tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
+                break;
+            }
+        
+        
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
+            num1=""+tempOperation;
+            num2="";
+            flag=false;
+            }
+            else{
+            num1=""+(int)tempOperation;
+            num2="";
+            flag=false;
+        }
+        OutputField.setText(num1);
+        }
+    }//GEN-LAST:event_ButtonForAnsButtonClicked
+
+    private void ButtonForAddButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForAddButtonClicked
+        // TODO add your handling code here:
+        if(!flag) {flag=true;
+            OutputField.setText(num1+"+");
+            operator='+';
+        }
+        else{double tempOperation=0;
+            switch(operator){
+            case '-':
+                tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
+                break;
+            case '+':
+                tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
+                break;
+            case '/':
+                tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
+                break;
+            case '*':
+                tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
+                break;
+            case '%':
+                tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
+                break;
+            }
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
+                num1=""+tempOperation;
+                num2="";
+                flag=false;
+            }
+            else{
+                num1=""+(int)tempOperation;
+                num2="";
+                flag=false;
+            }
+            operator='+';
+            OutputField.setText(num1);
+        }
+    }//GEN-LAST:event_ButtonForAddButtonClicked
+
+    private void ButtonForModButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForModButtonClicked
+        // TODO add your handling code here:
+        if(!flag) {flag=true;
+            OutputField.setText(num1+"%");
+            operator='%';
+        }
+        else{double tempOperation=0;
+            switch(operator){
+            case '-':
+                tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
+                break;
+            case '+':
+                tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
+                break;
+            case '/':
+                tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
+                break;
+            case '*':
+                tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
+                break;
+            case '%':
+                tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
+                break;
+            }
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
+            num1=""+tempOperation;
+            num2="";
+            flag=false;
+            }
+            else{
+            num1=""+(int)tempOperation;
+            num2="";
+            flag=false;
+            }
+            operator='%';
             OutputField.setText(num1);
         }
     }//GEN-LAST:event_ButtonForModButtonClicked
