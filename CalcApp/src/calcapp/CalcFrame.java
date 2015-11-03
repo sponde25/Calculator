@@ -286,18 +286,18 @@ public class CalcFrame extends javax.swing.JFrame {
     private void ButtonForSubButtonClicked(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonForSubButtonClicked
         // TODO add your handling code here:
         if(!flag) {flag=true;
-            OutputField.setText("");
-            operator='-';
+                OutputField.setText(num1+"-");
+                operator='-';
         }
         else{double tempOperation;
             tempOperation=Double.parseDouble(num1)-Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||(""+tempOperation).contains(".")){
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
             flag=false;
             }
             else{
-            num1=""+(int)tempOperation;
+            num1=String.valueOf((int)tempOperation);
             num2="";
             flag=false;
             }
@@ -314,7 +314,7 @@ public class CalcFrame extends javax.swing.JFrame {
         }
         else{double tempOperation;
             tempOperation=Double.parseDouble(num1)/Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||(""+tempOperation).contains(".")){
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
             flag=false;
@@ -336,7 +336,7 @@ public class CalcFrame extends javax.swing.JFrame {
         }
         else{double tempOperation;
             tempOperation=Double.parseDouble(num1)*Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||(""+tempOperation).contains(".")){
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
             flag=false;
@@ -371,7 +371,7 @@ public class CalcFrame extends javax.swing.JFrame {
                 break;
         }
         
-        if(num1.contains(".")||num2.contains(".")||(""+tempOperation).contains(".")){
+        if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
         num1=""+tempOperation;
         num2="";
         flag=false;
@@ -392,7 +392,7 @@ public class CalcFrame extends javax.swing.JFrame {
         }
         else{double tempOperation;
             tempOperation=Double.parseDouble(num1)+Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||(""+tempOperation).contains(".")){
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
                 num1=""+tempOperation;
                 num2="";
                 flag=false;
@@ -414,7 +414,7 @@ public class CalcFrame extends javax.swing.JFrame {
         }
         else{double tempOperation;
             tempOperation=Double.parseDouble(num1)%Double.parseDouble(num2);
-            if(num1.contains(".")||num2.contains(".")||(""+tempOperation).contains(".")){
+            if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
             flag=false;
@@ -444,6 +444,11 @@ public class CalcFrame extends javax.swing.JFrame {
         OutputField.setText("0");
     }//GEN-LAST:event_ButtonForClearButtonClicked
 
+    private boolean isInteger(double number){
+        int onlyInteger=(int)number;
+        if(onlyInteger==Math.ceil(number)) return true;
+        return false;
+    }
     /**
      * @param args the command line arguments
      */
