@@ -8,3 +8,5 @@
       3.Division(/)
       4.Multiplication(*)
       5.Mod(%)
+     Supprots solving simple expression in order of operators pressed.
+        Example: 5+6*2 will be solved as 11*2 = 22 
