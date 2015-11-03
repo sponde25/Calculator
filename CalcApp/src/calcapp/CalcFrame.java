@@ -316,15 +316,15 @@ public class CalcFrame extends javax.swing.JFrame {
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             else{
             num1=String.valueOf((int)tempOperation);
             num2="";
-            flag=false;
+            flag=true;
             }
             operator='-';
-            OutputField.setText(num1);
+            OutputField.setText(num1+"-");
         }
         
     }//GEN-LAST:event_ButtonForSubButtonClicked
@@ -356,15 +356,15 @@ public class CalcFrame extends javax.swing.JFrame {
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             else{
             num1=""+(int)tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             operator='/';
-            OutputField.setText(num1);
+            OutputField.setText(num1+"/");
         }
     }//GEN-LAST:event_ButtonForDivButtonClicked
 
@@ -395,15 +395,15 @@ public class CalcFrame extends javax.swing.JFrame {
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             else{
             num1=""+(int)tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             operator='*';
-            OutputField.setText(num1);
+            OutputField.setText(num1+"*");
         }
     }//GEN-LAST:event_ButtonForMultButtonClicked
 
@@ -444,6 +444,7 @@ public class CalcFrame extends javax.swing.JFrame {
             flag=false;
         }
         OutputField.setText(num1);
+        
         }
     }//GEN-LAST:event_ButtonForAnsButtonClicked
 
@@ -474,15 +475,15 @@ public class CalcFrame extends javax.swing.JFrame {
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
                 num1=""+tempOperation;
                 num2="";
-                flag=false;
+                flag=true;
             }
             else{
                 num1=""+(int)tempOperation;
                 num2="";
-                flag=false;
+                flag=true;
             }
             operator='+';
-            OutputField.setText(num1);
+            OutputField.setText(num1+"+");
         }
     }//GEN-LAST:event_ButtonForAddButtonClicked
 
@@ -513,15 +514,15 @@ public class CalcFrame extends javax.swing.JFrame {
             if(num1.contains(".")||num2.contains(".")||!isInteger(tempOperation)){
             num1=""+tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             else{
             num1=""+(int)tempOperation;
             num2="";
-            flag=false;
+            flag=true;
             }
             operator='%';
-            OutputField.setText(num1);
+            OutputField.setText(num1+"%");
         }
     }//GEN-LAST:event_ButtonForModButtonClicked
 
